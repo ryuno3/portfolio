@@ -9,8 +9,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      },
+      fontFamily: {
+        sans: ['var(--font-noto-sans)'],     // デフォルトフォント
+        maru: ['var(--font-zen-maru)'],      // アクセント用フォント
       },
     },
   },
