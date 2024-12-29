@@ -1,5 +1,6 @@
 import React from "react";
 import HeroAnimation from "./HeroAnimation";
+import ScrollBar from "@/components/features/scroll/ScrollBar";
 
 export default function Hero() {
   return (
@@ -19,6 +20,7 @@ export default function Hero() {
       >
         <HeroAnimation />
       </div>
+      <ScrollBar />
     </div>
   );
 }
