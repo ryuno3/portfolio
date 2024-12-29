@@ -1,21 +1,21 @@
 import { Metadata } from "next";
 import "./globals.css";
 import { Noto_Sans_JP, Zen_Maru_Gothic } from "next/font/google";
-
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 
 const noto = Noto_Sans_JP({
   subsets: ["latin"],
-  weight: ["400","500", "700"],
+  weight: ["400", "500", "700"],
   display: "swap",
   variable: "--font-noto",
 });
 
 const zen = Zen_Maru_Gothic({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-zen-maru',   
-})
-
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-zen-maru",
+});
 
 export const metadata: Metadata = {
   title: "Ryunosuke's Portfolio",
@@ -32,7 +32,10 @@ export default function RootLayout({
       <body
         className={`${noto.variable} ${zen.variable} ${noto.className} bg-zinc-600 text-gray-100 antialiased`}
       >
+        <Header />
+
         {children}
+        <Footer />
       </body>
     </html>
   );
