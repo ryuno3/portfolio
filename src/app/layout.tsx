@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import "./globals.css";
 import { Noto_Sans_JP, Zen_Maru_Gothic } from "next/font/google";
-import Header from "@/components/layout/header";
-import Footer from "@/components/layout/footer";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const noto = Noto_Sans_JP({
   subsets: ["latin"],

@@ -1,8 +1,9 @@
+import Headline from "@/components/layout/Headline";
 import React from "react";
 
 const About = () => {
   return (
-    <div>
+    <div className="text-center">
       {/* 何を書くか
       ・自己紹介　→ホームにも入れる
       ・経歴　→学歴、職歴
@@ -18,7 +19,7 @@ const About = () => {
         ・Contact →SNS  
        */}
 
-      <h1>About</h1>
+      <Headline title="About" />
     </div>
   );
 };
