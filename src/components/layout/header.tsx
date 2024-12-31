@@ -8,7 +8,7 @@ const Header = () => {
     { name: "Contact", href: "/contact" },
   ];
   return (
-    <div className="fixed top-0 left-0 right-0 z-10 flex justify-between items-center p-5 bg-transparent">
+    <div className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-5 bg-transparent">
       <nav>
         <ul className="flex gap-4 lg:gap-8">
           {menu.map((item) => (
