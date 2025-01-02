@@ -42,7 +42,7 @@ export default function HeroAnimation() {
       <motion.div
         initial={{ x: 0, opacity: 0 }}
         animate={{
-          x: "125%",
+          x: "120%",
           y: ["-50%", "-50%"],
           opacity: [0, 1],
         }}
