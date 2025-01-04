@@ -3,6 +3,8 @@ import Profile from "@/components/sections/about/Profile";
 import React from "react";
 import Image from "next/image";
 import Career from "@/components/sections/about/Career";
+import Skill from "@/components/sections/about/Skill";
+import Hobby from "@/components/sections/about/Hobby";
 const About = () => {
   return (
     <div className="flex flex-col items-center justify-center">
@@ -33,9 +35,19 @@ const About = () => {
         <Profile />
       </div>
       {/* 経歴 */}
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center max-w-max">
         <Headline title="Career" />
         <Career />
+      </div>
+      {/* スキル */}
+      <div className="flex flex-col items-center justify-center max-w-max">
+        <Headline title="Skill" />
+        <Skill />
+      </div>
+      {/* 趣味 */}
+      <div className="flex flex-col items-center justify-center max-w-max">
+        <Headline title="Hobby" />
+        <Hobby />
       </div>
     </div>
   );

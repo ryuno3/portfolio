@@ -1,5 +1,5 @@
 import React from "react";
-import HeroAnimation from "@/components/sections/hero/HeroAnimation";
+import HeroAnimation from "@/components/sections/Hero/HeroAnimation";
 
 export default function Hero() {
   return (
