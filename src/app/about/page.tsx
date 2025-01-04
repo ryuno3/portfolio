@@ -33,7 +33,7 @@ const About = () => {
         <Profile />
       </div>
       {/* 経歴 */}
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center max-w-max">
         <Headline title="Career" />
         <Career />
       </div>
