@@ -27,13 +27,16 @@ const About = () => {
       <Name />
       {/* 自己紹介と画像 */}
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-        <Image
-          src="/my_image.jpeg"
-          alt="Ryunosuke"
-          width={200}
-          height={200}
-          className="rounded-3xl "
-        />
+        <div className="relative w-[200px] aspect-square">
+          <Image
+            src="/my_image.jpeg"
+            alt="Ryunosuke"
+            fill
+            priority
+            sizes="200px"
+            className="rounded-3xl object-cover"
+          />
+        </div>
         <Profile />
       </div>
 
