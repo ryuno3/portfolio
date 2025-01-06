@@ -1,12 +1,13 @@
 import React from "react";
+import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
 const Profile = () => {
   return (
     <div className="relative mx-3 overflow-auto h-[30vh] md:h-auto border-2 rounded-md md:border-none p-2 z-0 border-gray-200">
       <div className="relative min-h-full">
         <div className="md:hidden sticky top-0 left-0 w-full flex justify-end">
-          <strong className="text-lg absolute z-10 bg-slate-50/5 text-black rounded-sm p-[0.01rem] italic">
-            ↓↓scroll
+          <strong className="text-3xl absolute z-10 bg-slate-50/5 text-gray-800 rounded-sm p-[0.01rem] italic">
+            {<MdKeyboardDoubleArrowDown />}
           </strong>
         </div>
         <p>2002年5月12日、大阪生まれの22歳です。</p>
