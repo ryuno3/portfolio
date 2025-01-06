@@ -5,9 +5,10 @@ import Image from "next/image";
 import Career from "@/components/sections/about/Career";
 import Skill from "@/components/sections/about/Skill";
 import Hobby from "@/components/sections/about/Hobby";
+import Name from "@/components/ui/Name";
 const About = () => {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center p-2">
       {/* 何を書くか
       ・自己紹介　→ホームにも入れる
       ・経歴　→学歴、職歴
@@ -23,6 +24,7 @@ const About = () => {
         ・Contact →SNS  
        */}
       <Headline title="About" />
+      <Name />
       {/* 自己紹介と画像 */}
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
         <Image
@@ -32,18 +34,22 @@ const About = () => {
           height={200}
           className="rounded-3xl "
         />
+        {/* <Name /> */}
         <Profile />
       </div>
+
       {/* 経歴 */}
       <div className="flex flex-col items-center justify-center max-w-max">
         <Headline title="Career" />
         <Career />
       </div>
+
       {/* スキル */}
       <div className="flex flex-col items-center justify-center max-w-max">
         <Headline title="Skill" />
         <Skill />
       </div>
+
       {/* 趣味 */}
       <div className="flex flex-col items-center justify-center max-w-max">
         <Headline title="Hobby" />
