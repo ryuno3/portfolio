@@ -34,7 +34,6 @@ const About = () => {
           height={200}
           className="rounded-3xl "
         />
-        {/* <Name /> */}
         <Profile />
       </div>
 
