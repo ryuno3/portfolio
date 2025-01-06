@@ -6,7 +6,7 @@ const Profile = () => {
       <div className="relative min-h-full">
         <div className="md:hidden sticky top-0 left-0 w-full flex justify-end">
           <strong className="text-lg absolute z-10 bg-slate-50/5 text-black rounded-sm p-[0.01rem] italic">
-            ↓↓scroll
+            ↓↓
           </strong>
         </div>
         <p>2002年5月12日、大阪生まれの22歳です。</p>
