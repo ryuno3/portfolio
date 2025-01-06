@@ -4,7 +4,7 @@ const Profile = () => {
   return (
     <div className="relative mx-3 overflow-auto h-[30vh] md:h-auto border-2 rounded-md md:border-none p-2 z-0 border-gray-200">
       <div className="relative min-h-full">
-        <div className="md:hidden sticky top-52 left-0 w-full flex justify-end">
+        <div className="md:hidden sticky top-0 left-0 w-full flex justify-end">
           <strong className="text-lg absolute z-10 bg-slate-50/5 text-black rounded-sm p-[0.01rem] italic">
             ↓↓scroll
           </strong>
