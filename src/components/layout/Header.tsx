@@ -5,6 +5,7 @@ const Header = () => {
   const menu = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
+    { name: "Works", href: "/works" },
     { name: "Contact", href: "/contact" },
   ];
   return (
