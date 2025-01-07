@@ -40,14 +40,14 @@ export default function HeroAnimation() {
         Ryunosuke
       </motion.div>
       <motion.div
-        initial={{ x: 0, opacity: 0 }}
+        initial={{ x: 10, opacity: 0 }}
         animate={{
-          x: "120%",
+          x: "-120%",
           y: ["-50%", "-50%"],
           opacity: [0, 1],
         }}
         transition={{ duration: 2.0, ease: "easeOut", delay: 2.0 }}
-        className="absolute top-1/2 z-10 sm:right-[-30%] md:right-[-20%] lg:right-[-15%]"
+        className="absolute top-1/2 z-10 right-[-30%] md:right-[-25%] lg:right-[-15%]"
       >
         <Image
           src={"/my_image.jpeg"}
