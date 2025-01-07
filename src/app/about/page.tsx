@@ -32,7 +32,6 @@ const About = () => {
             src="/my_image.jpeg"
             alt="Ryunosuke"
             fill
-            priority
             sizes="200px"
             className="rounded-3xl object-cover"
           />

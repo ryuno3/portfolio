@@ -10,10 +10,6 @@ const Career = () => {
         </header>
         <article className="flex flex-col">
           <ul className="flex flex-col gap-2">
-            <li className="flex flex-row gap-2 mt-2">
-              <time className="italic">2021年3月</time>
-              <p className="whitespace-nowrap">大阪府立市岡高校 卒業</p>
-            </li>
             <li className="flex flex-row gap-2">
               <time className="italic">2021年4月</time>
               <p className="whitespace-nowrap">大阪市立大学 入学</p>
@@ -43,11 +39,11 @@ const Career = () => {
               <time className="italic">2023年3月〜2024年1月</time>
             </li>
             <li className=" ml-2 mb-2">
-              <p className="whitespace-nowrap">マクドナルド近江今津店 アルバイト勤務</p>
+              <p className="whitespace-nowrap">マクドナルド近江今津店（アルバイト）</p>
             </li>
             <li className="flex flex-row gap-2">
               <time className="italic">2024年2月</time>
-              <p className="whitespace-nowrap">新日本金属株式会社 入社</p>
+              <p className="whitespace-nowrap">新日本金属工業株式会社（派遣）</p>
             </li>
           </ul>
         </article>
