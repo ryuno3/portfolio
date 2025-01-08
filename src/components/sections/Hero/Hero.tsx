@@ -11,7 +11,7 @@ export default function Hero() {
         loop
         muted
         playsInline
-      ></video>
+      />
       <div
         className="absolute left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2 z-10 
         text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold font-maru text-white
