@@ -6,7 +6,7 @@ const Career = () => {
     <main className="flex flex-col md:flex-row  gap-5 md:gap-2 max-w-max">
       <section className=" border-2 border-white rounded-lg p-2 pb-10 md:pb-0">
         <header>
-          <Headline title="学歴" />
+          <Headline title="学歴" size="m" />
         </header>
         <article className="flex flex-col">
           <ul className="flex flex-col gap-2">
@@ -23,7 +23,7 @@ const Career = () => {
       </section>
       <section className=" border-2 border-white rounded-lg p-2 overflow-hidden">
         <header>
-          <Headline title="職歴" />
+          <Headline title="職歴" size="m" />
         </header>
         <article className="flex flex-col overflow-scroll">
           <ul className="flex flex-col gap-2 mt-2">
