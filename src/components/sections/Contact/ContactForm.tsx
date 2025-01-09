@@ -1,20 +1,34 @@
 "use client";
 
 import Headline from "@/components/ui/Headline";
-import handleSubmit from "@/utils/form/handleSubmit";
-import { useState } from "react";
+import sendFormContents from "@/utils/form/handleSubmit";
+import React, { useState, useTransition } from "react";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [age, setAge] = useState("");
+  const [result, setResult] = useState<boolean>(false);
+  const [isPending, startTransition] = useTransition();
+
+  const handleSubit = async (formData: FormData) => {
+    startTransition(async () => {
+      setName("");
+      setEmail("");
+      setMessage("");
+      setAge("");
+      await sendFormContents(formData);
+      setResult(true);
+      await setTimeout(() => setResult(false), 3000);
+    });
+  };
 
   return (
     <div className="text-gray-700">
       <Headline title="お問い合わせ" size="m" />
 
-      <form action={handleSubmit}>
+      <form action={handleSubit}>
         <div className="flex flex-col space-y-3">
           <label htmlFor="name">お名前</label>
           <input
@@ -67,12 +81,17 @@ const ContactForm = () => {
           />
         </div>
 
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          送信
-        </button>
+        {result ? (
+          <p>送信が完了しました</p>
+        ) : (
+          <button
+            type="submit"
+            disabled={isPending}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            {isPending ? "送信中" : "送信"}
+          </button>
+        )}
       </form>
     </div>
   );
