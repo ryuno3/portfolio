@@ -9,7 +9,7 @@ const Contact = () => {
 
       <p className=" italic p-2">お仕事依頼、お問い合わせはこちらから</p>
       <p className=" text-sm ">※案件のご依頼もメールで承ります</p>
-      <main className=" w-full my-5 bg-white p-5 rounded-lg shadow-lg">
+      <main className=" w-[90%] md:w-[70%] lg:w-[50%] my-5 bg-white p-5 rounded-lg shadow-lg">
         <ContactForm />
       </main>
     </div>
