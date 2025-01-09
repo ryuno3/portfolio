@@ -7,7 +7,7 @@ const Contact = () => {
     <div className="flex flex-col items-center justify-center p-3 pt-[10vh]">
       <Headline title="Contact" size="l" />
 
-      <p className=" italic p-2">お仕事依頼、お問い合わせはこちらから</p>
+      <p className=" italic p-2">お問い合わせはこちらから</p>
       <p className=" text-sm ">※案件のご依頼もメールで承ります</p>
       <main className=" w-[90%] md:w-[70%] lg:w-[50%] my-5 bg-white p-5 rounded-lg shadow-lg">
         <ContactForm />
