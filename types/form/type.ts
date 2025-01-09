@@ -1,6 +1,7 @@
-export type FormData = {
+export type ContactFormData = {
   name: string;
-  age: number;
+  age: string;
   email: string;
   message: string;
+  error?: string;
 };
