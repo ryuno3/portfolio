@@ -3,7 +3,6 @@
 import Headline from "@/components/ui/Headline";
 import sendFormContents from "@/utils/form/handleSubmit";
 import React, { useState, useTransition } from "react";
-import { ContactFormData } from "@/../types/form/type";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -16,36 +15,46 @@ const ContactForm = () => {
 
   const handleSubit = async (formData: FormData) => {
     startTransition(async () => {
-      setName("");
-      setEmail("");
-      setMessage("");
-      setAge("");
+      try {
+        const validData = await sendFormContents(formData);
+        if (!validData) {
+          setError("データの検証に失敗しました");
+          return;
+        }
 
-      const validData: ContactFormData | undefined = await sendFormContents(formData);
-      if (!validData) {
-        // handle the case where validData is undefined
-        setError("送信に失敗しました");
-        return;
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(validData),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok || !data.success) {
+          console.error("API Error:", data);
+          setError(data.message || "送信に失敗しました");
+          return;
+        }
+
+        setResult(true);
+        resetForm();
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+        setResult(false);
+      } catch (e) {
+        console.error("Submit error:", e);
+        setError("エラーが発生しました");
       }
-
-      const { name, age, email, message } = validData;
-
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, age, email, message }),
-      });
-
-      if (!res.ok) {
-        setError("送信に失敗しました");
-        return;
-      }
-
-      setResult(true);
-      await setTimeout(() => setResult(false), 3000);
     });
+  };
+
+  const resetForm = () => {
+    setName("");
+    setEmail("");
+    setMessage("");
+    setAge("");
+    setError(null);
   };
 
   return (
