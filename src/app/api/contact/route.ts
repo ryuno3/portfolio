@@ -5,11 +5,12 @@ import nodemailer from "nodemailer";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    console.log("Received request body:", body); // デバッグログ
 
     if (!body.name || !body.age || !body.email || !body.message) {
-      console.log("Validation failed:", body); // デバッグログ
-      return NextResponse.json({ message: "必須項目が不足しています" }, { status: 400 });
+      return NextResponse.json(
+        { success: false, message: "必須項目が不足しています" },
+        { status: 400 }
+      );
     }
 
     const transporter = nodemailer.createTransport({
@@ -21,15 +22,10 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // メール送信前のログ
-    console.log("Attempting to send email with config:", {
-      user: process.env.GMAIL_USER ? "設定済み" : "未設定",
-      pass: process.env.GMAIL_APP_PASSWORD ? "設定済み" : "未設定",
-    });
-
     const options = {
-      from: body.email,
+      from: `"ポートフォリオ問い合わせ" <${process.env.GMAIL_USER}>`,
       to: process.env.GMAIL_USER,
+      replyTo: body.email,
       subject: "ポートフォリオからお問い合わせがありました",
       text: `お名前: ${body.name}\n年齢: ${body.age}\nメールアドレス: ${body.email}\n\nメッセージ: ${body.message}`,
     };
@@ -37,13 +33,8 @@ export async function POST(req: NextRequest) {
     await transporter.sendMail(options);
     return NextResponse.json({ success: true, message: "送信完了" }, { status: 200 });
   } catch (error) {
-    console.error("Email error:", error);
     return NextResponse.json(
-      {
-        success: false,
-        message: "メール送信に失敗しました",
-        error: error instanceof Error ? error.message : "Unknown error",
-      },
+      { success: false, message: `メール送信に失敗しました: ${error}` },
       { status: 500 }
     );
   }

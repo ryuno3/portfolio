@@ -40,7 +40,7 @@ const ContactForm = () => {
 
         setResult(true);
         resetForm();
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+        await new Promise((resolve) => setTimeout(resolve, 5000));
         setResult(false);
       } catch (e) {
         console.error("Submit error:", e);
