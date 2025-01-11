@@ -30,13 +30,18 @@ const ContactForm = () => {
 
       const { name, age, email, message } = validData;
 
-      await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ name, age, email, message }),
       });
+
+      if (!res.ok) {
+        setError("送信に失敗しました");
+        return;
+      }
 
       setResult(true);
       await setTimeout(() => setResult(false), 3000);
