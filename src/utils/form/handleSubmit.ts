@@ -1,6 +1,5 @@
 "use server";
 import { ContactFormData } from "@/../types/form/type";
-// import { redirect } from "next/navigation";
 
 const sendFormContents = async (formData: FormData) => {
   const data = {
@@ -10,8 +9,11 @@ const sendFormContents = async (formData: FormData) => {
     message: formData.get("message"),
   } as ContactFormData;
 
-  await setTimeout(() => console.log(data), 5000);
-  // redirect("./");
+  if (!data.name || !data.age || !data.email || !data.message) {
+    data.error = "必須項目が不足しています";
+    return data;
+  }
+  return data;
 };
 
 export default sendFormContents;
