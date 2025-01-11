@@ -3,6 +3,7 @@
 import Headline from "@/components/ui/Headline";
 import sendFormContents from "@/utils/form/handleSubmit";
 import React, { useState, useTransition } from "react";
+import { ContactFormData } from "@/../types/form/type";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -10,6 +11,7 @@ const ContactForm = () => {
   const [message, setMessage] = useState("");
   const [age, setAge] = useState("");
   const [result, setResult] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
   const handleSubit = async (formData: FormData) => {
@@ -18,7 +20,24 @@ const ContactForm = () => {
       setEmail("");
       setMessage("");
       setAge("");
-      await sendFormContents(formData);
+
+      const validData: ContactFormData | undefined = await sendFormContents(formData);
+      if (!validData) {
+        // handle the case where validData is undefined
+        setError("送信に失敗しました");
+        return;
+      }
+
+      const { name, age, email, message } = validData;
+
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, age, email, message }),
+      });
+
       setResult(true);
       await setTimeout(() => setResult(false), 3000);
     });
@@ -80,6 +99,8 @@ const ContactForm = () => {
             className="p-2 border border-gray-300 rounded-md"
           />
         </div>
+
+        {error && <p className="text-red-500">{error}</p>}
 
         {result ? (
           <p>送信が完了しました</p>
