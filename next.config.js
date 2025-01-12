@@ -14,6 +14,9 @@ const nextConfig = {
     });
     return config;
   },
+  images: {
+    domains: ["via.placeholder.com"],
+  },
 };
 
 module.exports = nextConfig;
