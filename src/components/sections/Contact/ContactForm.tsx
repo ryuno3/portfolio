@@ -116,17 +116,19 @@ const ContactForm = () => {
 
         {error && <p className="text-red-500">{error}</p>}
 
-        {result ? (
-          <p>送信が完了しました</p>
-        ) : (
-          <button
-            type="submit"
-            disabled={isPending}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            {isPending ? "送信中" : "送信"}
-          </button>
-        )}
+        <div className="text-center mt-3">
+          {result ? (
+            <p>送信が完了しました</p>
+          ) : (
+            <button
+              type="submit"
+              disabled={isPending}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              {isPending ? "送信中" : "送信"}
+            </button>
+          )}
+        </div>
       </form>
     </div>
   );
