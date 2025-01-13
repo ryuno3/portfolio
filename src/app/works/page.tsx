@@ -12,7 +12,7 @@ const getWorks = async () => {
   try {
     const res = await fetch(`${baseUrl}/api/works`, {
       method: "GET",
-      next: { revalidate: 3600 },
+      // next: { revalidate: 3600 },
       headers: {
         "Content-Type": "application/json",
       },
@@ -42,6 +42,9 @@ const Works = async () => {
     );
   }
 
+  const worksMin4 = works.length < 4;
+  const placeholderCount = worksMin4 ? 4 - works.length : 0;
+
   return (
     <div className="flex flex-col items-center justify-center p-3 pt-[10vh]">
       <Headline title="Works" size="l" />
@@ -49,6 +52,16 @@ const Works = async () => {
       <main className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {works.map((work: Work) => (
           <WorkCard key={work.id} {...work} />
+        ))}
+
+        {Array.from({ length: placeholderCount }).map((_, index) => (
+          <WorkCard
+            key={`placeholder-${index}`}
+            title="開発中"
+            description="......"
+            image="/no_image.png"
+            url=""
+          />
         ))}
       </main>
     </div>
