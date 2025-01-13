@@ -10,13 +10,13 @@ export async function GET() {
       return NextResponse.json({ works: [] }, { status: 200 });
     }
 
-    const works: Work[] = res.map(({ id, title, description, image, sourceUrl }) => ({
+    const works = res.map(({ id, title, description, image, sourceUrl }) => ({
       id,
       title,
       description,
       image,
       url: sourceUrl,
-    }));
+    })) as Work[];
 
     return NextResponse.json({ works });
   } catch (e) {
