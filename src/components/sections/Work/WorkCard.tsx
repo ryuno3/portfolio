@@ -2,12 +2,9 @@ import React from "react";
 import { Work } from "@/../types/works/type";
 import Image from "next/image";
 
-const WorkCard = ({ id, title, description, image, url }: Work) => {
+const WorkCard = ({ title, description, image, url }: Work) => {
   return (
-    <div
-      key={id}
-      className="flex flex-col items-center justify-center bg-zinc-800/30 p-5 rounded-lg shadow-lg"
-    >
+    <div className="flex flex-col items-center justify-center bg-zinc-800/30 p-5 rounded-lg shadow-lg">
       <h3 className="text-lg font-maru font-bold mb-2">{title || "開発中"}</h3>
       <p
         className="italic text-gray-2
