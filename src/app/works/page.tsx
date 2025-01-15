@@ -4,19 +4,22 @@ import { Work } from "@/../types/works/type";
 import WorkCard from "@/components/sections/Work/WorkCard";
 
 const getWorks = async () => {
-  // 絶対URLを使用
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000";
+  // Use NEXT_PUBLIC_VERCEL_URL instead of VERCEL_URL
+  const baseUrl =
+    process.env.NODE_ENV === "production"
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      : "http://localhost:3000";
 
   try {
     const res = await fetch(`${baseUrl}/api/works`, {
       method: "GET",
-      // next: { revalidate: 3600 },
       headers: {
         "Content-Type": "application/json",
       },
+      next: { revalidate: 60 }, // Cache for 60 seconds
     });
+
+    console.log("API Response Status:", res.status); // Debug log
 
     if (!res.ok) {
       throw new Error(`HTTPエラー|status: ${res.status}`);
