@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Work } from "@/../types/works/type";
 import Image from "next/image";
 
@@ -18,14 +18,16 @@ const WorkCard = ({ title, description, image, url }: Work) => {
         rel="noopener noreferrer"
         className="w-full aspect-video relative"
       >
-        <Image
-          src={image || "/no_image.png"}
-          alt={title}
-          fill
-          sizes="300px"
-          priority
-          className="object-cover rounded-lg"
-        />
+        <Suspense fallback={<div>Loading Image...</div>}>
+          <Image
+            src={image || "/no_image.png"}
+            alt={title}
+            fill
+            sizes="300px"
+            priority
+            className="object-cover rounded-lg"
+          />
+        </Suspense>
       </a>
     </div>
   );
